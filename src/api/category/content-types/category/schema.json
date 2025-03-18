@@ -16,16 +16,16 @@
     }
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "IsActive": {
+    "isActive": {
       "type": "boolean"
     },
-    "Description": {
+    "description": {
       "type": "string"
     },
-    "ParentCategory": {
+    "parentCategory": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"

@@ -4,46 +4,48 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product"
+    "displayName": "Product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
-    "Name": {
+    "name": {
       "type": "string"
     },
-    "Description": {
+    "description": {
       "type": "text"
     },
-    "Images": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
-    "Price": {
+    "price": {
       "type": "integer"
     },
-    "PriceDiscounted": {
+    "priceDiscounted": {
       "type": "integer"
     },
-    "IsActive": {
+    "isActive": {
       "type": "boolean"
     },
-    "Category": {
+    "category": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::category.category"
     },
-    "Stock": {
+    "stock": {
       "type": "integer"
     },
-    "AdditionalInfo": {
+    "additionalInfo": {
       "type": "json"
     }
   }

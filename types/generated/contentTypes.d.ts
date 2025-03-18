@@ -389,15 +389,15 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.String;
-    IsActive: Schema.Attribute.Boolean;
+    description: Schema.Attribute.String;
+    isActive: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::category.category'
     >;
-    Name: Schema.Attribute.String;
-    ParentCategory: Schema.Attribute.Relation<
+    name: Schema.Attribute.String;
+    parentCategory: Schema.Attribute.Relation<
       'oneToOne',
       'api::category.category'
     >;
@@ -411,6 +411,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
+    description: '';
     displayName: 'Product';
     pluralName: 'products';
     singularName: 'product';
@@ -419,28 +420,28 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    AdditionalInfo: Schema.Attribute.JSON;
-    Category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    additionalInfo: Schema.Attribute.JSON;
+    category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    Description: Schema.Attribute.Text;
-    Images: Schema.Attribute.Media<
+    description: Schema.Attribute.Text;
+    images: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true
     >;
-    IsActive: Schema.Attribute.Boolean;
+    isActive: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product.product'
     > &
       Schema.Attribute.Private;
-    Name: Schema.Attribute.String;
-    Price: Schema.Attribute.Integer;
-    PriceDiscounted: Schema.Attribute.Integer;
+    name: Schema.Attribute.String;
+    price: Schema.Attribute.Integer;
+    priceDiscounted: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
-    Stock: Schema.Attribute.Integer;
+    stock: Schema.Attribute.Integer;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

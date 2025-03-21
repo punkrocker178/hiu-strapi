@@ -14,9 +14,6 @@
     "name": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
     "images": {
       "type": "media",
       "multiple": true,
@@ -48,6 +45,9 @@
     },
     "additionalInfo": {
       "type": "json"
+    },
+    "description": {
+      "type": "blocks"
     }
   }
 }

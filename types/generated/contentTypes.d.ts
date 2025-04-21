@@ -409,6 +409,43 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
+  collectionName: 'orders';
+  info: {
+    description: '';
+    displayName: 'Order';
+    pluralName: 'orders';
+    singularName: 'order';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contactInfo: Schema.Attribute.Component<'contact.contact', false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::order.order'> &
+      Schema.Attribute.Private;
+    orderDetails: Schema.Attribute.JSON;
+    orderId: Schema.Attribute.UID & Schema.Attribute.Required;
+    orderStatus: Schema.Attribute.Enumeration<
+      ['New', 'Processing', 'Shipping', 'Completed', 'Canceled']
+    >;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    totalPrice: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    users_permissions_user: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+  };
+}
+
 export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
@@ -924,6 +961,7 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    orders: Schema.Attribute.Relation<'oneToMany', 'api::order.order'>;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
@@ -959,6 +997,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::category.category': ApiCategoryCategory;
+      'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

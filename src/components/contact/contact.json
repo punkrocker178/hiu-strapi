@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_contact_contacts",
+  "info": {
+    "displayName": "contact",
+    "icon": "envelop"
+  },
+  "options": {},
+  "attributes": {
+    "contactName": {
+      "type": "string"
+    },
+    "contactPhone": {
+      "type": "string"
+    },
+    "contactEmail": {
+      "type": "string"
+    }
+  }
+}

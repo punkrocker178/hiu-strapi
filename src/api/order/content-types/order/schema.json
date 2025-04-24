@@ -46,6 +46,16 @@
     },
     "orderDetails": {
       "type": "json"
+    },
+    "paymentMethod": {
+      "type": "enumeration",
+      "enum": [
+        "BankTransfer",
+        "COD"
+      ]
+    },
+    "orderNotes": {
+      "type": "text"
     }
   }
 }

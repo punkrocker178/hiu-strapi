@@ -430,9 +430,11 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     orderDetails: Schema.Attribute.JSON;
     orderId: Schema.Attribute.UID & Schema.Attribute.Required;
+    orderNotes: Schema.Attribute.Text;
     orderStatus: Schema.Attribute.Enumeration<
       ['New', 'Processing', 'Shipping', 'Completed', 'Canceled']
     >;
+    paymentMethod: Schema.Attribute.Enumeration<['BankTransfer', 'COD']>;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     totalPrice: Schema.Attribute.Integer;
